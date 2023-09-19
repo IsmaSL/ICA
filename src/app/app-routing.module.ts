@@ -27,6 +27,16 @@ export const AppRoutingModule: Routes = [
         ]
     },
     {
+        path: 'advisor',
+        component: FullComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: () => import('./advisor/advisor.module').then(m => m.AdvisorModule)
+            }
+        ]
+    },
+    {
         path: '**',
         redirectTo: '/login'
     },
