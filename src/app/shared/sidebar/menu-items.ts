@@ -26,12 +26,12 @@ export const ROUTES: RouteInfo[] = [
         submenu: []
     },
     {
-      path: '/users',
-      title: 'Usuarios',
-      icon: 'bi bi-people',
-      class: '',
-      extralink: false,
-      submenu: []
+        path: '/users',
+        title: 'Usuarios',
+        icon: 'bi bi-people',
+        class: '',
+        extralink: false,
+        submenu: []
     },
     /*
     {
@@ -83,4 +83,23 @@ export const ROUTES: RouteInfo[] = [
       submenu: []
     }
     */
+];
+
+export const ROUTES2: RouteInfo[] = [
+    {
+        path: '/profile',
+        title: 'Mi Perfil',
+        icon: 'bi bi-person',
+        class: '',
+        extralink: false,
+        submenu: []
+    },
+    {
+        path: '/config',
+        title: 'Configuración',
+        icon: 'bi bi-gear',
+        class: '',
+        extralink: false,
+        submenu: []
+    },
 ];

@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { ROUTES } from './menu-items';
+import { ROUTES2 } from './menu-items';
 import { RouteInfo } from './sidebar.metadata';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -13,6 +14,7 @@ export class SidebarComponent implements OnInit {
   showMenu = '';
   showSubMenu = '';
   public sidebarnavItems:RouteInfo[]=[];
+  public sidebarnavItemsProfile:RouteInfo[]=[];
   // this is for the open close
   addExpandClass(element: string) {
     if (element === this.showMenu) {
@@ -31,5 +33,6 @@ export class SidebarComponent implements OnInit {
   // End open close
   ngOnInit() {
     this.sidebarnavItems = ROUTES.filter(sidebarnavItem => sidebarnavItem);
+    this.sidebarnavItemsProfile = ROUTES2.filter(sidebarnavItemsProfile => sidebarnavItemsProfile);
   }
 }

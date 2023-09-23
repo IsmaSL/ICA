@@ -1,14 +1,44 @@
 <nav class="sidebar-nav">
     <ul id="sidebarnav" class="p-3">
+        <li class="sidebar-item">
+            <!-- <div class="">
+                <span>Bienvenid@</span>
+            </div> -->
+            <div class="d-flex align-items-center justify-content-start px-2">
+                <img src="assets/images/users/user1.jpg" alt="user" class="rounded-circle" width="36" />
+                <span class="ms-2 text-nowrap text-truncate">
+                    Nayelly Rosas García
+                </span>
+            </div>
+        </li>
+        <hr>
         <!-- First level menu -->
-        <li class="sidebar-item" [class.active]="showMenu === sidebarnavItem.title" *ngFor="let sidebarnavItem of sidebarnavItems"
+        <li class="sidebar-item" [class.active]="showMenu === sidebarnavItem.title"
+            *ngFor="let sidebarnavItem of sidebarnavItems"
             [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
             <div class="nav-small-cap" *ngIf="sidebarnavItem.extralink === true">{{sidebarnavItem.title}}</div>
-            <a class="sidebar-link waves-effect waves-dark" [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
-                [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink;" (click)="addExpandClass(sidebarnavItem.title)"
+            <a class="sidebar-link waves-effect waves-dark"
+                [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
+                [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink;"
+                (click)="addExpandClass(sidebarnavItem.title)"
                 [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
                 <i [ngClass]="[sidebarnavItem.icon]"></i>
                 <span class="hide-menu">{{sidebarnavItem.title}}</span>
+            </a>
+        </li>
+        <hr>
+        <!-- User Profile level menu -->
+        <li class="sidebar-item" [class.active]="showMenu === sidebarnavItemProfile.title"
+            *ngFor="let sidebarnavItemProfile of sidebarnavItemsProfile"
+            [routerLinkActive]="sidebarnavItemProfile.submenu.length != 0 ? '' : 'active'">
+            <div class="nav-small-cap" *ngIf="sidebarnavItemProfile.extralink === true">{{sidebarnavItemProfile.title}}</div>
+            <a class="sidebar-link waves-effect waves-dark"
+                [routerLink]="sidebarnavItemProfile.class === '' ? [sidebarnavItemProfile.path] : null"
+                [ngClass]="[sidebarnavItemProfile.class]" *ngIf="!sidebarnavItemProfile.extralink;"
+                (click)="addExpandClass(sidebarnavItemProfile.title)"
+                [routerLinkActive]="sidebarnavItemProfile.submenu.length != 0 ? '' : 'active'">
+                <i [ngClass]="[sidebarnavItemProfile.icon]"></i>
+                <span class="hide-menu">{{sidebarnavItemProfile.title}}</span>
             </a>
         </li>
         <li class="text-center py-3 upgrade-btn sidebar-item sticky-bottom">
