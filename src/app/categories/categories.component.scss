@@ -1,0 +1,39 @@
+/* Estilos por defecto para el enlace */
+.hover-link {
+    position: relative;
+    display: block;
+}
+
+/* Estilos para la imagen */
+.hover-link img {
+    transition: opacity 0.3s ease;
+}
+
+/* Estilos para el texto */
+.hover-link .hover-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    /* Degradado oscuro */
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Estilos para el texto cuando el mouse está sobre el enlace */
+.hover-link:hover img {
+    opacity: 0.7;
+}
+
+.hover-link:hover .hover-text {
+    opacity: 1;
+}
