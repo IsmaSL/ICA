@@ -1,33 +1,31 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { BrowserModule } from '@angular/platform-browser'
 import { Routes, RouterModule } from "@angular/router";
-import { ConstructionComponent } from "./construction.component";
+import { FloorsComponent } from "./floors.component";
 
 const routes: Routes = [
     {
         path: '',
         data: {
-            title: 'Construction',
+            title: 'Floors',
             urls: [
                 {
-                    title: 'Construction',
-                    url: '/construction'
+                    title: 'Floors',
+                    url: '/floors'
                 }
             ]
         },
-        component: ConstructionComponent
+        component: FloorsComponent
     }
 ];
 
 @NgModule({
     imports: [
         CommonModule,
-        BrowserModule,
         RouterModule.forChild(routes),
     ],
     declarations: [
-        ConstructionComponent
+        FloorsComponent
     ]
 })
-export class ConstructionModule {}
+export class FloorsModule {}

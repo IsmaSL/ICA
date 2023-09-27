@@ -1,1 +1,145 @@
-<p>floors works!</p>
+<div class="row px-3 pt-3">
+    <div class="col">
+        <div class="card shadow bg-white rounded px-2">
+            <div class="card-body">
+                <!-- Título -->
+                <!-- Título -->
+                <div class="row mb-5">
+                    <div class="col">
+                        <h2 class="h2">Pisos</h2>
+                        <span class="">
+                            Completa el siguiente formulario para ofrecerte una solución que se ajuste a tus
+                            necesidades.
+                        </span>
+                    </div>
+                </div>
+
+                <!-- <div class="row mb-5">
+                    <div class="col">
+                        <div class="custom-background p-3">
+                            <h2 class="h2 mi-text-white">Pisos</h2>
+                            <br><br>
+                            <span class="mi-text-white">
+                                Completa el siguiente formulario para ofrecerte una solución que se ajuste a tus
+                                necesidades.
+                            </span>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Formulario -->
+                <form>
+                    <!-- Descripción -->
+                    <div class="row mb-3">
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="row">
+                                <div class="col">
+                                    <span class="card-title">1. Descripción del caso:</span>
+                                    <br>
+                                    <span class="card-text">
+                                        Describe de forma breve y concisa el caso que presentas.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <div class="row border border-black border-2 rounded px-2 py-3">
+                                <div class="col">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- Palabras clave -->
+                    <div class="row mb-3">
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="row">
+                                <div class="col">
+                                    <span class="card-title">2. Palabras clave:</span>
+                                    <br>
+                                    <span class="card-text">
+                                        Selecciona las palabras que más se asocien a tu proyecto
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <div class="row border border-black border-2 rounded px-2 py-3">
+                                <div class="col-md-3" *ngFor="let opcion of opciones; let i = index">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="opcion{{i}}"
+                                            [value]="opcion" (change)="toggleOpcion(opcion)"
+                                            [checked]="opcionesSeleccionadas.includes(opcion)" />
+                                        <label class="form-check-label" for="opcion{{i}}">
+                                            {{ opcion }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- Categoría -->
+                    <div class="row mb-3">
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="row">
+                                <div class="col">
+                                    <span class="card-title">3. Categoría:</span>
+                                    <br>
+                                    <span class="card-text">
+                                        Selecciona la categoría que más se relacione con el tipo de piso a construir.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <div class="row border border-black border-2 rounded px-2 py-3">
+                                <div class="col">
+                                    <label for="" class="form-label">Piso para interiores</label>
+                                    <select class="form-select mb-3" aria-label="Large select example">
+                                        <option selected disabled>Seleccione una categoría...</option>
+                                        <option value="1">Cerámico</option>
+                                        <option value="2">Porcelanato</option>
+                                        <option value="3">Duela de madera</option>
+                                        <option value="4">Piso de cemento pulido</option>
+                                        <option value="5">Laminado</option>
+                                        <option value="6">Piso Alfombrado</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="" class="form-label">Piso para exteriores</label>
+                                    <select class="form-select mb-3" aria-label="Large select example">
+                                        <option selected disabled>Seleccione una categoría...</option>
+                                        <option value="1">Piedra</option>
+                                        <option value="2">Madera natural</option>
+                                        <option value="3">Madera sintética</option>
+                                        <option value="4">Cerámico</option>
+                                        <option value="5">Hormigón</option>
+                                        <option value="6">Piedra partida</option>
+                                        <option value="7">Cemento con textura</option>
+                                        <option value="8">Adoquines</option>
+                                        <option value="9">Laja</option>
+                                        <option value="10">Venecita</option>
+                                        <option value="11">Mosaico calcáreo</option>
+                                        <option value="12">Ladrillos para piso</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5 mb-3">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-md-2 text-start">
+                                <a href="/services/construction" class="btn btn-info btn-lg w-100">Regresar</a>
+                            </div>
+                            <div class="col-md-2 text-end">
+                                <button type="submit" class="btn btn-success btn-lg w-100">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

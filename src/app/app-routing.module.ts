@@ -5,6 +5,7 @@ import { FullComponent } from './layouts/full/full.component';
 import { AuthGuard } from './auth/auth.guard';
 import { CategoriesComponent } from './categories/categories.component';
 import { ConstructionComponent } from './construction/construction.component';
+import { FloorsComponent } from './construction/floors/floors.component';
 
 export const AppRoutingModule: Routes = [
     { 
@@ -37,9 +38,22 @@ export const AppRoutingModule: Routes = [
                 component: CategoriesComponent,
             },
             {
-                path: 'construction', // Ruta para /services/construction
-                loadChildren: () => import('./construction/construction.module').then(m => m.ConstructionModule)
-            }
+                path: 'construction',
+                children: [
+                    {
+                        path: '',
+                        component: ConstructionComponent
+                    },
+                    {
+                        path: 'floors',
+                        loadChildren: () => import('./construction/floors/floors.module').then(m => m.FloorsModule)
+                    },
+                    {
+                        path: 'slabs',
+                        loadChildren: () => import('./construction/slabs/slabs.module').then(m => m.SlabsModule)
+                    }
+                ]
+            },
         ]
     },
     {

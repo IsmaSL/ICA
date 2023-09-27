@@ -2,3 +2,10 @@
   max-width: 1440px;
   margin: 0 auto;
 }
+
+
+.op {
+    flex-grow: 1;
+    overflow-y: auto; /* Hace que la sección sea desplazable verticalmente si es necesario */
+    max-height: calc(100vh - 40px);
+}
