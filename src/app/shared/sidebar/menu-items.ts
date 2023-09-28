@@ -11,7 +11,7 @@ export const ROUTES: RouteInfo[] = [
     },
     {
         path: '/services',
-        title: 'Servicios',
+        title: 'Consultor',
         icon: 'bi bi-robot',
         class: '',
         extralink: false,
