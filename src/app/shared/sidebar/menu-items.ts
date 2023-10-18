@@ -7,7 +7,8 @@ export const ROUTES: RouteInfo[] = [
         icon: 'bi bi-house',
         class: '',
         extralink: false,
-        submenu: []
+        submenu: [],
+        role: ''
     },
     {
         path: '/services',
@@ -15,7 +16,8 @@ export const ROUTES: RouteInfo[] = [
         icon: 'bi bi-robot',
         class: '',
         extralink: false,
-        submenu: []
+        submenu: [],
+        role: ''
     },
     {
         path: '/requests',
@@ -23,7 +25,8 @@ export const ROUTES: RouteInfo[] = [
         icon: 'bi bi-patch-check',
         class: '',
         extralink: false,
-        submenu: []
+        submenu: [],
+        role: 'admin'
     },
     {
         path: '/users',
@@ -31,7 +34,8 @@ export const ROUTES: RouteInfo[] = [
         icon: 'bi bi-people',
         class: '',
         extralink: false,
-        submenu: []
+        submenu: [],
+        role: 'admin'
     },
     /*
     {

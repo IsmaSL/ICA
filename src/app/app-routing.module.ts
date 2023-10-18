@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { FullComponent } from './layouts/full/full.component';
-import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './auth.guard';
+import { RoleGuard } from './role.guard';
 import { CategoriesComponent } from './categories/categories.component';
 import { ConstructionComponent } from './construction/construction.component';
-import { FloorsComponent } from './construction/floors/floors.component';
 
 export const AppRoutingModule: Routes = [
     { 
@@ -32,6 +32,7 @@ export const AppRoutingModule: Routes = [
     {
         path: 'services',
         component: FullComponent,
+        canActivate: [AuthGuard],
         children: [
             {
                 path: '',
@@ -53,6 +54,33 @@ export const AppRoutingModule: Routes = [
                         loadChildren: () => import('./construction/slabs/slabs.module').then(m => m.SlabsModule)
                     }
                 ]
+            },
+        ]
+    },
+    {
+        path: 'requests',
+        component: FullComponent,
+        canActivate: [
+            AuthGuard,
+            RoleGuard,
+        ],
+        children: [
+            {
+                path: '',
+                loadChildren: () => import('./requests/request.module').then(m => m.RequestsModule)
+            },
+        ]
+    },
+    {
+        path: 'error',
+        component: FullComponent,
+        canActivate: [
+            AuthGuard,
+        ],
+        children: [
+            {
+                path: '403',
+                loadChildren: () => import('./errors/e403/e403.module').then(m => m.E403Module)
             },
         ]
     },

@@ -7,7 +7,7 @@
             <div class="d-flex align-items-center justify-content-start px-2">
                 <img src="assets/images/users/user1.jpg" alt="user" class="rounded-circle" width="36" />
                 <span class="ms-2 text-nowrap text-truncate">
-                    Nayelly Rosas García
+                    {{ user.nombre }} {{ user.apellidos }}
                 </span>
             </div>
         </li>
@@ -42,7 +42,7 @@
             </a>
         </li>
         <li class="text-center py-3 upgrade-btn sidebar-item sticky-bottom">
-            <a href="#" class="btn d-block w-100 btn-danger">Cerrar sesión</a>
+            <button class="btn d-block w-100 btn-danger" (click)="logout()">Cerrar sesión</button>
         </li>
     </ul>
 </nav>

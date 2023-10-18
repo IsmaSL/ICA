@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { fadeInOutAnimation } from './animation'; // Importa las animaciones
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
     selector: 'app-auth',
@@ -10,10 +11,12 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent implements OnInit {
 
+    credentials = { username: '', password: '' };
+
     loginDiv: boolean = true;
     requestDiv: boolean = false;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private authService: AuthService) { }
 
     ngOnInit(): void {
     }
@@ -24,8 +27,17 @@ export class AuthComponent implements OnInit {
     }
 
     login() {
-        // this.router.navigateByUrl('/home', { skipLocationChange: true });
-        this.router.navigate(['/home']);
-    }
+        this.authService.login(this.credentials).subscribe(response => {
+            const data: any = response;
+    
+            // Almacena el token y la información del usuario en localStorage
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
 
+            // Procesa la respuesta, guarda el token, navega a otra página, etc.
+            this.router.navigate(['/home']);
+        }, error => {
+            alert("Ups... " + error.error.error)
+        });
+    }
 }

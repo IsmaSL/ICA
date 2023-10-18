@@ -21,7 +21,9 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
-import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './auth.guard';
+import { E403Component } from './errors/e403/e403.component';
+import { RoleGuard } from './role.guard';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true,
@@ -54,7 +56,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
             provide: PERFECT_SCROLLBAR_CONFIG,
             useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
         },
-        AuthGuard
+        AuthGuard,
+        RoleGuard,
     ],
     bootstrap: [AppComponent]
 })
