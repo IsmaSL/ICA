@@ -72,6 +72,33 @@ export const AppRoutingModule: Routes = [
         ]
     },
     {
+        path: 'users',
+        component: FullComponent,
+        canActivate: [
+            AuthGuard,
+            RoleGuard,
+        ],
+        children: [
+            {
+                path: '',
+                loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+            },
+        ]
+    },
+    {
+        path: 'profile',
+        component: FullComponent,
+        canActivate: [
+            AuthGuard,
+        ],
+        children: [
+            {
+                path: '',
+                loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
+            },
+        ]
+    },
+    {
         path: 'error',
         component: FullComponent,
         canActivate: [
