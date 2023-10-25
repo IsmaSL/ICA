@@ -31,7 +31,7 @@ const routes: Routes = [
     ],
     declarations: [
         UsersComponent,
-        FilterPipe
+        FilterPipe,
     ]
 })
 export class UsersModule {}

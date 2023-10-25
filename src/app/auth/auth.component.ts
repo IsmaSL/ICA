@@ -12,6 +12,7 @@ import { AuthService } from '../services/auth.service';
 export class AuthComponent implements OnInit {
 
     credentials = { username: '', password: '' };
+    newRequest = { name: '', last_name: '', email: '' }
 
     loginDiv: boolean = true;
     requestDiv: boolean = false;
@@ -39,5 +40,22 @@ export class AuthComponent implements OnInit {
         }, error => {
             alert("Ups... " + error.error.error)
         });
+    }
+
+    sendRequest() {
+        this.authService.sendRequest(this.newRequest).subscribe(
+            (response) => {
+                // Procesa la respuesta y muestra un mensaje de éxito
+                console.log('Solicitud enviada con éxito', response);
+                alert('Solicitud enviada con éxito');
+
+                this.newRequest = { name: '', last_name: '', email: '' }
+            },
+            (error) => {
+                // Maneja el error y muestra un mensaje de error
+                console.error('Error al enviar la solicitud', error);
+                alert('Error al enviar la solicitud');
+            }
+        );
     }
 }

@@ -16,4 +16,8 @@ export class AuthService {
     isLoggedIn(): boolean {
         return !!localStorage.getItem('token');
     }
+
+    sendRequest(request: { name: string; last_name: string; email: string }) {
+        return this.http.post(`${this.apiUrl}/new-request`, request);
+    }
 }

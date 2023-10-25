@@ -67,7 +67,7 @@ export const AppRoutingModule: Routes = [
         children: [
             {
                 path: '',
-                loadChildren: () => import('./requests/request.module').then(m => m.RequestsModule)
+                loadChildren: () => import('./requests/requests.module').then(m => m.RequestsModule)
             },
         ]
     },

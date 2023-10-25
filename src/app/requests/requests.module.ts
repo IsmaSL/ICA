@@ -2,6 +2,10 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Routes, RouterModule } from "@angular/router";
 import { RequestsComponent } from "./requests.component";
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FilterPipe } from "./filter.pipe";
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
     {
@@ -23,10 +27,13 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-
+        NgxPaginationModule,
+        FormsModule,
+        NgbModule,
     ],
     declarations: [
-        RequestsComponent
+        RequestsComponent,
+        FilterPipe,
     ]
 })
 export class RequestsModule {}

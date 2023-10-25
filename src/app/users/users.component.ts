@@ -49,7 +49,6 @@ export class UsersComponent implements OnInit {
         return url_img === 'null' ? 'assets/images/users/user1.jpg' : 'assets/images/users/user2.jpg'
     }
 
-
     changeUserStatus(user: any) {
         const newStatus = user.status === '1' ? '0' : '1';
 

@@ -37,33 +37,39 @@
         </div>
         <div *ngIf="requestDiv" class="col-xs-9 col-sm-7 col-md-6 col-lg-3 col-xl-3 p-5 shadow-sm border rounded-3 bg-white" [@fadeInOut]>
             <div class="form-signin w-100 m-auto d-flex flex-column" >
-                <form>
+                <form (ngSubmit)="sendRequest()">
                     <img class="mb-4 img-fluid" src="assets/images/logos/ica_logo_light_2.jpg" height="75" alt="">
                     <!-- <h1 class="h3 mb-3 fw-normal text-center">Gracias por contactarnos</h1> -->
                     <div class="text-center mb-3">
                         <span class="h6">
-                            Para tener acceso a nuestro sitio llene el siguiente formulario y 
+                            Si desea tener acceso a este sitio, llene los siguientes datos y 
                             uno de nuestros colaboradores se pondrá en contacto.
                         </span>
                     </div>
                     
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="" placeholder="">
-                        <label for="floatingInput">Nombre completo</label>
+                        <input type="text" class="form-control" id="" placeholder=""
+                        [(ngModel)]="newRequest.name" name="name">
+                        <label for="floatingInput">Nombre(s)</label>
                     </div>
                     <div class="form-floating">
-                        <input type="email" class="form-control" id="" placeholder="name@example.com">
-                        <label for="floatingInput">Correo</label>
+                        <input type="text" class="form-control" id="" placeholder=""
+                        [(ngModel)]="newRequest.last_name" name="last_name">
+                        <label for="floatingInput">Apellidos</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="" placeholder="name@example.com"
+                        [(ngModel)]="newRequest.email" name="email">
+                        <label for="floatingInput">Correo Electrónico</label>
                     </div>
 
                     <div class="text-center my-2">
-                        <span class="card-subtitle h6">Tiempo aproximado de respuesta: <br> 2 días hábiles.</span>
+                        <span class="card-subtitle h6">Tiempo respuesta: Hasta 2 días hábiles.</span>
                     </div>
                     <button class="btn btn-info w-100 py-2" type="submit">Enviar</button>
                     <div class="text-center mt-2">
                         <a href="javascript:void(0);" class="text-decoration-underline link-info link-offset-2 link-underline-opacity-100 link-underline-opacity-100-hover"
-                            (click)="toggleDiv()"
-                        >Iniciar sesión</a>
+                            (click)="toggleDiv()">Iniciar sesión</a>
                     </div>
                     <!-- <p class="mt-3 text-body-secondary">© 2017–2023</p> -->
                 </form>
