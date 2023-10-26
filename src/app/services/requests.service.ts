@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class RequestsService {
     private apiUrl = 'https://icaapi-production.up.railway.app';
@@ -26,7 +26,7 @@ export class RequestsService {
         });
     }
 
-    updateRequestStatus(email: string, newStatus: string): Observable<any> {
+    updateRequestStatus(email: string): Observable<any> {
         // Obtiene el token y el correo del usuario en sesión
         const token = localStorage.getItem('token');
 
@@ -38,7 +38,7 @@ export class RequestsService {
 
         const body = {
             email: email,
-            newStatus: newStatus
+            newStatus: '1'
         };
 
         return this.http.patch(`${this.apiUrl}/update-request-status`, body, { headers: headers });
@@ -54,6 +54,10 @@ export class RequestsService {
             Authorization: `Bearer ${token}`,
         });
 
-        return this.http.patch(`${this.apiUrl}/update-request-status`, { headers: headers });
+        // Configura el cuerpo de la petición con el arreglo userData
+        const body = userData;
+
+        // Envía la petición HTTP PATCH al endpoint /add-user
+        return this.http.post(`${this.apiUrl}/add-user`, body, { headers: headers });
     }
 }

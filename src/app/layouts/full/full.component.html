@@ -9,7 +9,7 @@
     <!-- ============================================================== -->
     <header class="topbar" data-navbarbg="skin1">
         <nav class="d-flex top-navbar navbar-expand-lg navbar-dark">
-            <div class="navbar-header" [ngClass]="expandLogo ? 'expand-logo' : ''" data-logobg="skin6">
+            <div class="navbar-header bg-white" [ngClass]="expandLogo ? 'expand-logo' : ''" data-logobg="skin6">
                 <!-- This is for the sidebar toggle which is visible on mobile only -->
                 <a (click)="showMobileMenu = !showMobileMenu"
                     class="nav-toggler waves-effect waves-light d-block d-lg-none" href="javascript:void(0)">
@@ -57,7 +57,7 @@
     <!-- ============================================================== -->
     <!-- Left Sidebar - style you can find in sidebar.scss  -->
     <!-- ============================================================== -->
-    <aside class="left-sidebar" data-sidebarbg="skin6" (mouseover)="Logo()" (mouseout)="Logo()">
+    <aside class="left-sidebar bg-white" data-sidebarbg="skin6" (mouseover)="Logo()" (mouseout)="Logo()">
         <app-sidebar></app-sidebar>
     </aside>
     <!-- ============================================================== -->

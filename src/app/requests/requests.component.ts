@@ -13,6 +13,7 @@ export class RequestsComponent implements OnInit {
     searchText: string = "";
     p: number = 1;
     loading = false;
+    loading2 = false;
     passGenerated: string = "";
 
     newUser = {
@@ -20,7 +21,7 @@ export class RequestsComponent implements OnInit {
         name: '',
         last_name: '',
         password: '',
-        role: ''
+        role: 'user'
     };
 
     constructor(private requestsService: RequestsService, config: NgbModalConfig, private modalService: NgbModal) {
@@ -32,6 +33,10 @@ export class RequestsComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.getAllRequest();
+    }
+
+    getAllRequest() {
         this.loading = true;
         this.requestsService.getAllRequests().subscribe(
             (response) => {
@@ -57,23 +62,39 @@ export class RequestsComponent implements OnInit {
         // Aquí puedes añadir los valores por defecto antes de enviar la solicitud
         const userData = {
             ...this.newUser,
-            url_img: null,
-            teléfono: 'xxxxxxxxxx',
-            status: 1
+            url_img: 'null',
+            phone: 'xxxxxxxxxx',
+            status: '1'
         };
 
         console.log(userData);
-        
 
-        // this.requestsService.addNewUser(userData).subscribe(
-        //     (response) => {
-        //         console.log(response);
+        this.loading2 = true;
+        this.requestsService.addNewUser(userData).subscribe(
+            (response) => {
+                this.updateRequestStatus(this.newUser.email);
+                this.loading2 = false;
+            },
+            (error) => {
+                console.log(error);
+                this.loading2 = false;
+            }
+        );
+    }
 
-        //     },
-        //     (error) => {
-        //         console.log(error);
-        //     }
-        // );
+    updateRequestStatus(email: string) {
+        this.requestsService.updateRequestStatus(email).subscribe(
+            (data) => {
+                alert(data.message)
+                console.log(data.message);
+                this.modalService.dismissAll();
+                this.requests = [];
+                this.getAllRequest();
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
     }
 
     generatePassword() {

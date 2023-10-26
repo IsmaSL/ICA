@@ -1,6 +1,6 @@
 <div class="row px-3 pt-3">
     <div class="col">
-        <div class="card shadow rounded">
+        <div class="card shadow rounded bg-white">
             <div class="card-body">
                 <div class="row">
                     <div class="col">
@@ -75,7 +75,7 @@
                     </div>
 
                     <ng-template #noUsersTemplate>
-                        <div class="row py-5 my-5">
+                        <div *ngIf="!loading" class="row py-5 my-5">
                             <div class="col text-center">
                                 <img src="assets/images/errors/nothing-found.png" class="img-fluid mb-4" style="width: 125px" alt=":/">
                                 <h4>No hay usuarios por mostrar</h4>
