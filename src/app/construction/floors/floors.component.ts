@@ -31,4 +31,8 @@ export class FloorsComponent implements OnInit {
         }
     }
 
+    get_results() {
+        
+    }
+
 }

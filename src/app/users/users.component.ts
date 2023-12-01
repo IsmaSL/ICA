@@ -21,8 +21,7 @@ export class UsersComponent implements OnInit {
             (response) => {
                 this.loading = false;
                 this.users = response;
-            },
-            (error) => {
+            }, (error) => {
                 console.log("Error al obtener la lista de usuarios: \n", error);
                 this.loading = false;
             }

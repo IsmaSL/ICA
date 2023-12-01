@@ -55,6 +55,10 @@ export const AppRoutingModule: Routes = [
                     }
                 ]
             },
+            {
+                path: 'results',
+                loadChildren: () => import('./results/results.module').then(m => m.ResultsModule)
+            },
         ]
     },
     {
